@@ -74,35 +74,8 @@
         </a>
       </section>
 
-      {{! Disqus comments container }}
-      <div id="disqus_thread">
-        <button class="show-comments btn--full-width" id="show-comments" onclick="loadComments();"><a href="{{url}}#disqus_thread">Load Comments</a></button>
-        <script type="text/javascript">
-
-          // EDIT THIS LINE!
-          var disqus_shortname = '0x414a'; // You *must* replace this with your shortname
-
-          var disqus_identifier = '{{uuid}}';
-
-          (function () {
-            var s = document.createElement('script'); s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-          }());
-
-          function loadComments() {
-            (function () {
-              var dsq = document.createElement('script');
-              dsq.type = 'text/javascript';
-              dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-            document.getElementById('show-comments').style.display = "none";
-          }
-        </script>
-      </div>
+      {{> "comments"}}
+                            
     </div>
     <div class="col-md-3">
       {{> "recent-posts"}}
