@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_description}}" />
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+  <link rel="stylesheet" type="text/css" href="{{asset "vendor/vendor.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+  {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+  {{navigation}}
+
+  {{{body}}}
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="search-results-container">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Search results</h4>
+        </div>
+        <div class="modal-body">
+          Searched for <strong id="search-term"></strong>
+          <hr>
+          <section id="loading-spinner" class="text-center"><i class="fa fa-spinner fa-spin fa-2x"></i></section>
+          <section id="search-results" class="search-results"></section>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer clearfix container text-muted">
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <a href="#top" data-scroll="true">
+          <i class="fa fa-arrow-up"></i> Back to top
+        </a>
+      </div>
+      <div class="col-md-6 text-right">
+        <p><strong>{{@blog.title}}</strong> &copy; {{date format="YYYY"}}</p>
+        <p><small>Theme by <a href="http://nehalist.io" target="_blank">nehalist.io</a></small></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="{{ asset "vendor/vendor.js" }}"></script>
+
+  {{ghost_foot}}
+
+  <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+</body>
+</html>

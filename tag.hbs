@@ -1,0 +1,18 @@
+{{!< default}}
+
+<header class="subheader">
+  <div class="container">
+    <h2 class="page-title">{{@blog.title}} <small>{{tag.name}}</small></h2>
+  </div>
+</header>
+
+<main id="content" class="container">
+  <div class="row">
+    <div class="col-md-9">
+      {{> "loop"}}
+    </div>
+    <div class="col-md-3">
+      {{> "tags"}}
+    </div>
+  </div>
+</main>

@@ -1,0 +1,113 @@
+{{!< default}}
+
+{{#post}}
+
+<header class="subheader">
+  <div class="container">
+    <h2 class="page-title">
+      {{^if page}}
+      <small><a href="/"><i class="fa fa-chevron-left"></i></a></small>
+      {{/if}}
+      {{title}}</h2>
+  </div>
+</header>
+
+<main id="content" class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <article class="post {{post_class}}">
+        <header class="post-header">
+          <section class="post-meta text-muted">
+            <ul class="list-inline">
+              <li><i class="fa fa-calendar"></i> <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></li>
+              {{#author}}
+              <li>
+                {{#if profile_image}}
+                <a class="author-image" href="{{url}}" style="background-image: url({{img_url profile_image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                {{else}}
+                <i class="fa fa-user"></i>
+                {{/if}}
+
+                <a href="{{url}}">{{name}}</a>
+              </li>
+              {{/author}}
+
+              {{#if tags}}
+              <li><i class="fa fa-folder-open"></i> {{tags}}</li>
+              {{/if}}
+            </ul>
+          </section>
+
+          {{#if feature_image}}
+          <section class="post-image">
+            <div style="background-image: url({{img_url feature_image}});"></div>
+          </section>
+          {{/if}}
+        </header>
+
+        <section class="post-content">
+          {{content}}
+        </section>
+      </article>
+
+      <section class="share text-center">
+        <a class="share-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        <a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        <a class="share-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
+            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+      </section>
+
+      {{! Disqus comments container }}
+      <div id="disqus_thread">
+        <script type="text/javascript">
+          if($("#disqus_thread").length) {
+                    // EDIT THIS LINE!
+                    var disqus_shortname = '0x414a'; // You *must* replace this with your shortname
+
+                    var disqus_identifier = '{{uuid}}';
+
+                    (function () {
+                      var s = document.createElement('script'); s.async = true;
+                      s.type = 'text/javascript';
+                      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+                    }());
+
+                    function loadComments() {
+                      (function () {
+                        var dsq = document.createElement('script');
+                        dsq.type = 'text/javascript';
+                        dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                      })();
+                      document.getElementById('show-comments').style.display = "none";
+                    }
+          }
+        </script>
+      </div>
+    </div>
+    <div class="col-md-3">
+      {{> "recent-posts"}}
+    </div>
+  </div>
+</main>
+
+{{/post}}

@@ -1,0 +1,50 @@
+{{#if posts}}
+  {{#foreach posts}}
+  <article class="post {{post_class}}">
+    <header class="post-header">
+      <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+
+      <section class="post-meta text-muted">
+        <ul class="list-inline">
+          <li><i class="fa fa-calendar"></i> <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></li>
+          {{#author}}
+          <li>
+            {{#if profile_image}}
+            <a class="author-image" href="{{url}}" style="background-image: url({{img_url profile_image}})"><span class="hidden">{{name}}'s Picture</span></a>
+            {{else}}
+            <i class="fa fa-user"></i>
+            {{/if}}
+
+            <a href="{{url}}">{{name}}</a>
+
+          </li>
+          {{/author}}
+
+          {{#if tags}}
+          <li><i class="fa fa-folder-open"></i> {{tags}}</li>
+          {{/if}}
+        </ul>
+      </section>
+
+      {{#if feature_image}}
+      <section class="post-image">
+        <div style="background-image: url({{img_url feature_image}});"></div>
+      </section>
+      {{/if}}
+    </header>
+
+    <section class="post-content">
+      {{content}}
+    </section>
+
+  </article>
+  {{/foreach}}
+{{else}}
+<div class="text-center text-muted">
+  <h3>
+    No posts found!
+  </h3>
+</div>
+{{/if}}
+
+{{pagination}}
