@@ -6,3 +6,4 @@ Changes:
 
  - Navbar is dark.
  - Updated to work with Ghost v1.x.x
+ - Disqus
