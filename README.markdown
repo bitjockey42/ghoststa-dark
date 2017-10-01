@@ -7,3 +7,5 @@ Changes:
  - Navbar is dark.
  - Updated to work with Ghost v1.x.x
  - Disqus
+
+ The `Makefile` is to create a zipfile to be uploaded to your ghost blog.
